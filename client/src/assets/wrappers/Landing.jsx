@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.main`
-  .page {
+  .full-page {
     background-image: url('../images/Landing-background.jpg');
-    background-color: var(--primary-1000);
     min-height: calc(100vh);
     display: flex;
     align-items: center;

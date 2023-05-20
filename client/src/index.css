@@ -36,6 +36,7 @@ html {
   --grey-700: #334e68;
   --grey-800: #243b53;
   --grey-900: #102a43;
+  --grey-1000: #242a35;
   /* rest of the colors */
   --black: #222;
   --white: #fff;
@@ -50,7 +51,7 @@ html {
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
   /* rest of the vars */
-  --backgroundColor: var(--grey-50);
+  --backgroundColor: var(--grey-1000);
   --textColor: var(--grey-900);
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
@@ -232,7 +233,7 @@ ul {
   width: 100%;
   padding: 0.375rem 0.75rem;
   border-radius: var(--borderRadius);
-  background: var(--backgroundColor);
+  background: var(--white);
   border: 1px solid var(--grey-200);
 }
 .form-input,
