@@ -11,7 +11,7 @@ const Landing = () => {
           <h1>
             <span>Rusted</span> Idle
           </h1>
-          <Link to='/dashboard' className='btn btn-hero'>
+          <Link to='/register' className='btn btn-hero'>
             play now
           </Link>
         </div>

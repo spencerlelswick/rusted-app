@@ -30,6 +30,7 @@
     "jsonwebtoken": "^9.0.0",
     "minimatch": "^3.1.2",
     "mongoose": "^7.2.0",
+    "morgan": "^1.10.0",
     "ms": "^2.1.3",
     "nopt": "^1.0.10",
     "normalize-path": "^3.0.0",
@@ -49,8 +50,9 @@
     "nodemon": "^2.0.22"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "server": "nodemon server --ignore client",
+    "client": "npm start --prefix client",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \" npm run client\""
   },
   "repository": {
     "type": "git",

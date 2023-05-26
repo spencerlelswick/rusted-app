@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 const app = express()
 dotenv.config()
 import 'express-async-errors'
+import morgan from 'morgan'
 
 import connectDB from './db/connect.js'
 
@@ -13,10 +14,13 @@ import errorHandlerMiddleware from './middleware/error-handler.js'
 
 const port = process.env.PORT || 5001
 
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'))
+}
 app.use(express.json())
 
-app.get('/', (req, res) => {
-  res.send('hello')
+app.get('/api/v1/', (req, res) => {
+  res.json({ msg: 'testing' })
 })
 
 app.use('/api/v1/auth', authRouter)

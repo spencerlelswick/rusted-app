@@ -2,9 +2,11 @@ import { useState, useEffect, useContext } from 'react'
 import { Logo, FormRow, Alert } from '../components'
 import Wrapper from '../assets/wrappers/RegisterPage'
 import { useAppContext } from '../context/appContext'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const initialState = {
-  name: '',
+  username: '',
   email: '',
   password: '',
   isMember: true,
@@ -12,10 +14,10 @@ const initialState = {
 
 const Register = () => {
   const [values, setValues] = useState(initialState)
+  const navigate = useNavigate()
 
-  const { isLoading, showAlert, displayAlert } = useAppContext()
-
-  console.log(isLoading, showAlert)
+  const { user, isLoading, showAlert, displayAlert, registerUser, loginUser } =
+    useAppContext()
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
@@ -27,13 +29,28 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    const { name, email, password, isMember } = values
-    if (!email || !password || (!isMember && !name)) {
+    const { username, email, password, isMember } = values
+    console.log(values)
+    if (!email || !password || (!isMember && !username)) {
       displayAlert()
       return
     }
-    console.log(values)
+
+    const currentUser = { username, email, password }
+    if (isMember) {
+      loginUser(currentUser)
+    } else {
+      registerUser(currentUser)
+    }
   }
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate('/')
+      }, 3000)
+    }
+  }, [user, navigate])
 
   return (
     <Wrapper className='full-page'>
@@ -45,8 +62,8 @@ const Register = () => {
           <FormRow
             handleChange={handleChange}
             type='text'
-            name='name'
-            value={values.name}
+            name='username'
+            value={values.username}
           />
         )}
 
