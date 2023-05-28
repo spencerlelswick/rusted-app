@@ -51,8 +51,10 @@ html {
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
   /* rest of the vars */
-  --backgroundColor: var(--grey-1000);
-  --textColor: var(--grey-900);
+  /* --backgroundColor: var(--grey-1000);
+  --textColor: var(--grey-900); */
+  background: var(--primary-1000);
+  color: var(--white);
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
