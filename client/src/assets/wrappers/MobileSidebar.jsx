@@ -18,6 +18,8 @@ const Wrapper = styled.aside`
   .show-sidebar {
     z-index: 99;
     opacity: 1;
+    display: flex;
+    flex-direction: column;
   }
   .content {
     background: var(--white);
@@ -37,7 +39,7 @@ const Wrapper = styled.aside`
     background: transparent;
     border-color: transparent;
     font-size: 2rem;
-    color: var(--red-dark);
+    color: var(--primary-900);
     cursor: pointer;
   }
   .nav-links {
@@ -48,19 +50,24 @@ const Wrapper = styled.aside`
   .nav-link {
     display: flex;
     align-items: center;
-    color: var(--grey-500);
+    color: var(--white);
     padding: 1rem 0;
     text-transform: capitalize;
     transition: var(--transition);
   }
   .nav-link:hover {
-    color: var(--grey-900);
+    color: var(--primary-500);
   }
   .nav-link:hover .icon {
     color: var(--primary-500);
   }
+  .nav-logout {
+    color: var(--primary-900);
+    background-color: var(--transparent);
+    border-radius: 0;
+  }
   .icon {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     margin-right: 1rem;
     display: grid;
     place-items: center;

@@ -12,7 +12,6 @@ const SharedLayout = () => {
         <LgSidebar />
 
         <div>
-          <Navbar />
           <div className='dashboard-page'>
             <Outlet />
           </div>

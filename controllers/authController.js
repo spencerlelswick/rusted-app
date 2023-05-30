@@ -37,8 +37,6 @@ const login = async (req, res) => {
     throw new UnAuthenticatedError('Invalid credentials')
   }
 
-  console.log(user)
-
   const isPasswordCorrect = await user.comparePassword(password)
 
   if (!isPasswordCorrect) {
@@ -49,8 +47,6 @@ const login = async (req, res) => {
 
   user.password = undefined
   res.status(StatusCodes.OK).json({ user, token })
-
-  res.send('login user')
 }
 const updateUser = async (req, res) => {
   res.send('updateUser user')

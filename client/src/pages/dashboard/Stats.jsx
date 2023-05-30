@@ -1,4 +1,11 @@
+import { PageHeader } from '../../components'
+
 const Stats = () => {
-  return <div>Stats</div>
+  return (
+    <div>
+      <PageHeader pageName='Stats' />
+      Stats
+    </div>
+  )
 }
 export default Stats
