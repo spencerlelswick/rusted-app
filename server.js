@@ -8,9 +8,11 @@ import morgan from 'morgan'
 import connectDB from './db/connect.js'
 
 import authRouter from './routes/authRoutes.js'
+import baseRouter from './routes/baseRoutes.js'
 
 import notFoundMiddleware from './middleware/not-found.js'
 import errorHandlerMiddleware from './middleware/error-handler.js'
+import authenticateUser from './middleware/auth.js'
 
 const port = process.env.PORT || 5001
 
@@ -24,6 +26,7 @@ app.get('/api/v1/', (req, res) => {
 })
 
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/base', authenticateUser, baseRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
