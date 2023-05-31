@@ -7,6 +7,16 @@ const Wrapper = styled.aside`
     display: block;
     box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 
+    .logo {
+      padding: 1rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .logo-text {
+      padding: 0;
+      margin: 0;
+      font-size: 1.5rem;
+    }
     .sidebar-container {
       background: var(--primary-500);
       color: var(--white);

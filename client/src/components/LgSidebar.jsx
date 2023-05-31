@@ -9,9 +9,9 @@ const LgSidebar = () => {
 
   return (
     <Wrapper>
-      <header className='icon'>
+      <header className='logo'>
         <Logo />
-        <p>Rusted Idle</p>
+        <div className='logo-text'>Rusted Idle</div>
       </header>
       <div className='nav-links'>
         <NavLinks />
