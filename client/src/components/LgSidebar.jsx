@@ -11,7 +11,7 @@ const LgSidebar = () => {
     <Wrapper>
       <header className='logo'>
         <Logo />
-        <div className='logo-text'>Rusted Idle</div>
+        <div className='logo-text'>Rust Belt</div>
       </header>
       <div className='nav-links'>
         <NavLinks />

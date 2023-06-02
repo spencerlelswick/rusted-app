@@ -12,6 +12,9 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_ERROR,
   UPDATE_USER_SUCCESS,
+  UPDATE_FACTORY_BEGIN,
+  UPDATE_FACTORY_SUCCESS,
+  UPDATE_FACTORY_ERROR,
 } from './actions'
 
 import { initialState } from './appContext'
@@ -128,6 +131,32 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: 'danger',
       alertText: action.payload.msg,
+    }
+  }
+  if (action.type === UPDATE_FACTORY_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    }
+  }
+  if (action.type === UPDATE_FACTORY_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      factory: action.payload.factory,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'Factory updated!',
+    }
+  }
+
+  if (action.type === UPDATE_FACTORY_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: 'Could not afford!',
     }
   }
 

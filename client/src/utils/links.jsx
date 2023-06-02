@@ -33,6 +33,14 @@ const links = [
   },
   {
     id: 5,
+    text: 'Resources',
+    path: 'resources',
+    icon: <GiOpenChest />,
+    accentColor: 'turquoise',
+  },
+
+  {
+    id: 6,
     text: 'Storage',
     path: 'storage',
     icon: <GiOpenChest />,

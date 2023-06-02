@@ -15,7 +15,12 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_ERROR,
   UPDATE_USER_SUCCESS,
+  UPDATE_FACTORY_BEGIN,
+  UPDATE_FACTORY_SUCCESS,
+  UPDATE_FACTORY_ERROR,
 } from './actions'
+
+import factoryData from '../data/factory'
 
 const user = localStorage.getItem('user')
 const token = localStorage.getItem('token')
@@ -31,12 +36,14 @@ const initialState = {
   userLocation: userLocation || '',
   jobLocation: userLocation || '',
   showSidebar: false,
+  factory: factoryData,
 }
 
 const AppContext = createContext()
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+  console.log(state)
 
   const authFetch = axios.create({
     baseURL: '/api/v1',
@@ -167,6 +174,23 @@ const AppProvider = ({ children }) => {
     clearAlert()
   }
 
+  const updateFactory = (factory) => {
+    dispatch({ type: UPDATE_FACTORY_BEGIN })
+    try {
+      dispatch({
+        type: UPDATE_FACTORY_SUCCESS,
+        payload: { factory },
+      })
+    } catch (error) {
+      dispatch({
+        type: UPDATE_FACTORY_ERROR,
+        payload: { msg: 'factory error' },
+      })
+    }
+
+    clearAlert()
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -177,6 +201,7 @@ const AppProvider = ({ children }) => {
         logoutUser,
         toggleSidebar,
         updateUser,
+        updateFactory,
       }}
     >
       {children}

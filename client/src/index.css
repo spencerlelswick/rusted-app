@@ -25,6 +25,14 @@ html {
   --primary-900: #ff2a00;
   --primary-1000: #330800;
 
+  /* Resource Colors */
+
+  --resource-iron: #592720;
+  --resource-coal: #3e414a;
+  --resource-copper: #70b596;
+  --resource-limestone: #7e7a6c;
+  --resource-sulfur: #dbbf5a;
+
   /* grey */
   --grey-50: #f0f4f8;
   --grey-100: #d9e2ec;

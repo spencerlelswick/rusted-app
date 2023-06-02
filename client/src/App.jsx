@@ -9,6 +9,7 @@ import {
   Storage,
 } from './pages/dashboard'
 import Base from './pages/dashboard/Base'
+import Resources from './pages/dashboard/Resources'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/outpost' element={<Outpost />}></Route>
           <Route path='/inventory' element={<Inventory />}></Route>
           <Route path='/storage' element={<Storage />}></Route>
+          <Route path='/resources' element={<Resources />}></Route>
         </Route>
         <Route path='/landing' element={<Landing />}></Route>
         <Route path='/register' element={<Register />}></Route>
